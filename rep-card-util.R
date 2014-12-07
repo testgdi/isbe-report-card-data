@@ -84,3 +84,10 @@ file.column.lookup <- function( file.lookup.fn) {
   file.lookup.d
 }
 
+trim <- function (x){
+  gsub("^\\s+|\\s+$", "", x)
+}
+
+kp <- function() {
+  for( i in dev.list()) dev.off(i)
+}
