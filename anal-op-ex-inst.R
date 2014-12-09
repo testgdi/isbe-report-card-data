@@ -316,13 +316,14 @@ col.d <- read.table( "data2014/county-col.csv", header=T, sep=";")
 col.d$county <- trim( as.character( col.d$county))
 
 m <- merge( u.dist.m, col.d) # , join="left")
+prov.idx <- grep( "Proviso", m$dist.name)
 
-plot( m$low.inc.dist.pct, m$raw.index)
+plot( m$low.inc.dist.pct, m$raw.index, col="gray")
+points( m$low.inc.dist.pct[prov.idx], m$raw.index[prov.idx], col="red")
 
 ## regress out low.inc.dist.pct and county norm
 lm.out.2 <- lm( overhead ~ normalized.index.mean + low.inc.dist.pct, data=m)
 
-prov.idx <- grep( "Proviso", m$dist.name)
 hist( lm.out.2$residuals, n=100)
 abline(v= lm.out.2$residuals[ prov.idx])
 
@@ -356,3 +357,19 @@ tot.oh.3[ prov.idx]
 ## > tot.oh.3[ prov.idx]
 ##      56 
 ## $6,407,673 
+
+## restrict to Cook
+## shows Proviso oh is unremarkable in Cook County
+cook.bool <- m$county == "Cook"
+m.cook <- m[cook.bool,]
+png("overhead.vs.low.inc.cook.png")
+plot( m.cook$low.inc.dist.pct, m.cook$overhead, col="gray")
+points( m$low.inc.dist.pct[prov.idx], m$overhead[prov.idx], col="red")
+abline(lm( m.cook$overhead ~ m.cook$low.inc.dist.pct), col="blue")
+dev.off()
+
+
+## county as dummy
+library(MASS)
+rlm.out.3 <- rlm( overhead ~ as.factor( county) + low.inc.dist.pct, data=m)
+summary( rlm.out.3)
