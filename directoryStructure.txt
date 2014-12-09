@@ -1,0 +1,38 @@
+.
+├── anal-op-ex-inst.R
+├── analysis-psae-eva-teachratio.R
+├── analysis-psae-lowinc.R
+├── analysis.R
+├── data2014
+│   ├── ReadMeForSeparatedFiles.txt
+│   ├── county-col.csv # not in original Report Card Data
+│   ├── file-lookup.txt # cleaned up ReadMeForSeparatedFiles.txt
+│   ├── rc14-layout-2014.txt # converted from .xlsx file in Report Card data
+│   ├── rc14p1.txt
+│   ├── rc14p10.txt
+│   ├── rc14p11.txt
+│   ├── rc14p12.txt
+│   ├── rc14p13.txt
+│   ├── rc14p14.txt
+│   ├── rc14p15.txt
+│   ├── rc14p16.txt
+│   ├── rc14p17.txt
+│   ├── rc14p18.txt
+│   ├── rc14p19.txt
+│   ├── rc14p2.txt
+│   ├── rc14p20.txt
+│   ├── rc14p21.txt
+│   ├── rc14p22.txt
+│   ├── rc14p23.txt
+│   ├── rc14p24.txt
+│   ├── rc14p25.txt
+│   ├── rc14p26.txt
+│   ├── rc14p3.txt
+│   ├── rc14p4.txt
+│   ├── rc14p5.txt
+│   ├── rc14p6.txt
+│   ├── rc14p7.txt
+│   ├── rc14p8.txt
+│   ├── rc14p9.txt
+│   └── rc14p9.xlsx
+└── rep-card-util.R
