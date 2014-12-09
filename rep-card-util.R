@@ -1,9 +1,17 @@
+## some utility functions to read data files from
+## Illinois State Board of Education report card data found in various
+## files
+## http://www.isbe.net/assessment/report_card.htm
+## An excel spreadsheet showing the layout of the data was converted
+## to text by hand
+## the big data files were not saved in the git repo but the layout was
+
 ## read the layout
-data.dir <- "/Users/frank/Documents/ReportCardSeparatedFiles2014/"
 data.dir <- "data2014/"
 get.data.dir <- function() {
   data.dir
 }
+
 layout.fn <- "rc14-layout-2014.txt"
 layout.fn <- paste(data.dir, layout.fn, sep="")
 layout.d <- read.table(layout.fn, header=F, sep="\t", comment.char="")
@@ -11,6 +19,7 @@ colnames(layout.d) <- c("field.num","fac1","demo1",
                         "col.range", "col.width",
                         "field.name", "field.fmt",
                         "col.start", "col.end")
+
 layout.d$field.num <- as.numeric( layout.d$field.num)
 
 ## what file
